@@ -3,7 +3,7 @@ Name:		nodejs-gyp
 Version:	0.4.1
 Release:	1
 License:	MIT
-Group:		Libraries
+Group:		Development/Libraries
 URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
 # Source0-md5:	70dcb0b846af2be1ce31d568729261e2
