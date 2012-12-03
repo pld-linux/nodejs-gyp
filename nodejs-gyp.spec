@@ -1,12 +1,12 @@
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
-Version:	0.8.1
+Version:	0.7.3
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
-# Source0-md5:	2ee90f06e443576272b2a1e98d07061a
+# Source0-md5:	6ed1cda95544587a78287975cdb0ce5d
 BuildRequires:	sed >= 4.0
 Requires:	make
 Requires:	gcc
