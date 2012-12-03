@@ -1,29 +1,28 @@
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
-Version:	0.4.1
-Release:	2
+Version:	0.8.1
+Release:	1
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
-# Source0-md5:	70dcb0b846af2be1ce31d568729261e2
-# fix package.json dependencies for newer versions in RPMs
-Patch1:		node-gyp-fixdeps.patch
+# Source0-md5:	2ee90f06e443576272b2a1e98d07061a
 BuildRequires:	sed >= 4.0
 Requires:	make
 Requires:	gcc
 Requires:	nodejs
 Requires:	nodejs-ansi >= 0.1.0
-Requires:	nodejs-fstream
-Requires:	nodejs-glob >= 3.1.9
-Requires:	nodejs-minimatch
-Requires:	nodejs-mkdirp
-Requires:	nodejs-nopt
-Requires:	nodejs-request
-Requires:	nodejs-rimraf
-Requires:	nodejs-semver
-Requires:	nodejs-tar
-Requires:	nodejs-which
+Requires:	nodejs-fstream >= 0.1.13, nodejs-fstream < 0.2.0
+Requires:	nodejs-glob >= 3.0.0, nodejs-glob < 4.0.0
+Requires:	nodejs-graceful-fs >= 1.0.0, nodejs-graceful-fs < 2.0.0
+Requires:	nodejs-minimatch >= 0.2.0, nodejs-minimatch < 0.3.0
+Requires:	nodejs-mkdirp >= 0.3.0, nodejs-mkdirp < 0.4.0
+Requires:	nodejs-nopt >= 2.0.0, nodejs-nopt < 3.0.0
+Requires:	nodejs-request >= 2.9.0, nodejs-request < 2.10.0
+Requires:	nodejs-rimraf >= 2.0.0, nodejs-rimraf < 3.0.0
+Requires:	nodejs-semver >= 1.0.0, nodejs-semver < 2.0.0
+Requires:	nodejs-tar >= 0.1.12, nodejs-tar < 0.2.0
+Requires:	nodejs-which >= 1.0.0, nodejs-which < 2.0.0
 Requires:	python
 Obsoletes:	node-node-gyp
 BuildArch:	noarch
@@ -38,14 +37,10 @@ replacement to the node-waf program which is removed for node v0.8.
 %prep
 %setup -qc
 mv package/* .
-%patch1 -p0
 
 # fix shebangs
 %{__sed} -i -e '1s,^#!.*node,#!/usr/bin/node,' \
 	bin/node-gyp.js
-
-# fix #!/usr/bin/env python -> #!/usr/bin/python:
-grep -rl 'bin/env python' legacy/tools | xargs %{__sed} -i -e '1s,^#!.*python,#!%{__python},'
 
 %install
 rm -rf $RPM_BUILD_ROOT
