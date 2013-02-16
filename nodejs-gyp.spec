@@ -1,28 +1,40 @@
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
-Version:	0.7.3
+Version:	0.8.4
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
-# Source0-md5:	6ed1cda95544587a78287975cdb0ce5d
+# Source0-md5:	d0437427803254a369e3a32ba0431ffc
 BuildRequires:	sed >= 4.0
-Requires:	make
 Requires:	gcc
+Requires:	make
 Requires:	nodejs
-Requires:	nodejs-ansi >= 0.1.0
-Requires:	nodejs-fstream >= 0.1.13, nodejs-fstream < 0.2.0
-Requires:	nodejs-glob >= 3.0.0, nodejs-glob < 4.0.0
-Requires:	nodejs-graceful-fs >= 1.0.0, nodejs-graceful-fs < 2.0.0
-Requires:	nodejs-minimatch >= 0.2.0, nodejs-minimatch < 0.3.0
-Requires:	nodejs-mkdirp >= 0.3.0, nodejs-mkdirp < 0.4.0
-Requires:	nodejs-nopt >= 2.0.0, nodejs-nopt < 3.0.0
-Requires:	nodejs-request >= 2.9.0, nodejs-request < 2.10.0
-Requires:	nodejs-rimraf >= 2.0.0, nodejs-rimraf < 3.0.0
-Requires:	nodejs-semver >= 1.0.0, nodejs-semver < 2.0.0
-Requires:	nodejs-tar >= 0.1.12, nodejs-tar < 0.2.0
-Requires:	nodejs-which >= 1.0.0, nodejs-which < 2.0.0
+Requires:	nodejs-fstream >= 0.1.13
+Requires:	nodejs-fstream < 0.2.0
+Requires:	nodejs-glob >= 3.0.0
+Requires:	nodejs-glob < 4.0.0
+Requires:	nodejs-graceful-fs >= 1.0.0
+Requires:	nodejs-graceful-fs < 2.0.0
+Requires:	nodejs-minimatch >= 0.2.0
+Requires:	nodejs-minimatch < 0.3.0
+Requires:	nodejs-mkdirp >= 0.3.0
+Requires:	nodejs-mkdirp < 0.4.0
+Requires:	nodejs-nopt >= 2.0.0
+Requires:	nodejs-nopt < 3.0.0
+Requires:	nodejs-npmlog < 1.0.0
+Requires:	nodejs-osenv < 1.0.0
+Requires:	nodejs-request >= 2.9.0
+Requires:	nodejs-request < 2.10.0
+Requires:	nodejs-rimraf >= 2.0.0
+Requires:	nodejs-rimraf < 3.0.0
+Requires:	nodejs-semver >= 1.0.0
+Requires:	nodejs-semver < 2.0.0
+Requires:	nodejs-tar >= 0.1.12
+Requires:	nodejs-tar < 0.2.0
+Requires:	nodejs-which >= 1.0.0
+Requires:	nodejs-which < 2.0.0
 Requires:	python
 Obsoletes:	node-node-gyp
 BuildArch:	noarch
