@@ -11,30 +11,30 @@ BuildRequires:	sed >= 4.0
 Requires:	gcc
 Requires:	make
 Requires:	nodejs
-Requires:	nodejs-fstream >= 0.1.13
 Requires:	nodejs-fstream < 0.2.0
-Requires:	nodejs-glob >= 3.0.0
+Requires:	nodejs-fstream >= 0.1.13
 Requires:	nodejs-glob < 4.0.0
-Requires:	nodejs-graceful-fs >= 1.0.0
+Requires:	nodejs-glob >= 3.0.0
 Requires:	nodejs-graceful-fs < 2.0.0
-Requires:	nodejs-minimatch >= 0.2.0
+Requires:	nodejs-graceful-fs >= 1.0.0
 Requires:	nodejs-minimatch < 0.3.0
-Requires:	nodejs-mkdirp >= 0.3.0
+Requires:	nodejs-minimatch >= 0.2.0
 Requires:	nodejs-mkdirp < 0.4.0
-Requires:	nodejs-nopt >= 2.0.0
+Requires:	nodejs-mkdirp >= 0.3.0
 Requires:	nodejs-nopt < 3.0.0
+Requires:	nodejs-nopt >= 2.0.0
 Requires:	nodejs-npmlog < 1.0.0
 Requires:	nodejs-osenv < 1.0.0
-Requires:	nodejs-request >= 2.9.0
 Requires:	nodejs-request < 2.10.0
-Requires:	nodejs-rimraf >= 2.0.0
+Requires:	nodejs-request >= 2.9.0
 Requires:	nodejs-rimraf < 3.0.0
-Requires:	nodejs-semver >= 1.0.0
+Requires:	nodejs-rimraf >= 2.0.0
 Requires:	nodejs-semver < 2.0.0
-Requires:	nodejs-tar >= 0.1.12
+Requires:	nodejs-semver >= 1.0.0
 Requires:	nodejs-tar < 0.2.0
-Requires:	nodejs-which >= 1.0.0
+Requires:	nodejs-tar >= 0.1.12
 Requires:	nodejs-which < 2.0.0
+Requires:	nodejs-which >= 1.0.0
 Requires:	python
 Obsoletes:	node-node-gyp
 BuildArch:	noarch
