@@ -1,38 +1,34 @@
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
-Version:	0.8.5
+Version:	0.9.3
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
-# Source0-md5:	102768fc1842e72c6c61639f2da6c338
+# Source0-md5:	7b7c87c7ede0614e34acce0b7fab7ea6
 BuildRequires:	sed >= 4.0
 Requires:	gcc
 Requires:	make
 Requires:	nodejs
-Requires:	nodejs-fstream < 0.2.0
-Requires:	nodejs-fstream >= 0.1.13
+Requires:	nodejs-fstream
 Requires:	nodejs-glob < 4.0.0
 Requires:	nodejs-glob >= 3.0.0
 Requires:	nodejs-graceful-fs < 2.0.0
 Requires:	nodejs-graceful-fs >= 1.0.0
-Requires:	nodejs-minimatch < 0.3.0
-Requires:	nodejs-minimatch >= 0.2.0
-Requires:	nodejs-mkdirp < 0.4.0
-Requires:	nodejs-mkdirp >= 0.3.0
+Requires:	nodejs-minimatch
+Requires:	nodejs-mkdirp
 Requires:	nodejs-nopt < 3.0.0
 Requires:	nodejs-nopt >= 2.0.0
 Requires:	nodejs-npmlog < 1.0.0
 Requires:	nodejs-osenv < 1.0.0
-Requires:	nodejs-request < 2.10.0
-Requires:	nodejs-request >= 2.9.0
+Requires:	nodejs-request < 3
+Requires:	nodejs-request >= 2
 Requires:	nodejs-rimraf < 3.0.0
 Requires:	nodejs-rimraf >= 2.0.0
 Requires:	nodejs-semver < 2.0.0
 Requires:	nodejs-semver >= 1.0.0
-Requires:	nodejs-tar < 0.2.0
-Requires:	nodejs-tar >= 0.1.12
+Requires:	nodejs-tar
 Requires:	nodejs-which < 2.0.0
 Requires:	nodejs-which >= 1.0.0
 Requires:	python
