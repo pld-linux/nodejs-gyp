@@ -5,12 +5,13 @@
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
 Version:	0.9.5
-Release:	0.1
+Release:	0.2
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
 # Source0-md5:	3d8a5cf4b5b92457af68035bb0e0e96f
+Patch0:		jobs-alias.patch
 BuildRequires:	sed >= 4.0
 Requires:	make
 Requires:	nodejs
@@ -49,6 +50,7 @@ replacement to the node-waf program which is removed for node v0.8.
 %prep
 %setup -qc
 mv package/* .
+%patch0 -p1
 
 # fix shebangs
 %{__sed} -i -e '1s,^#!.*node,#!/usr/bin/node,' \
