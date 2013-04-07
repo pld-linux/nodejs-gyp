@@ -1,7 +1,11 @@
+# TODO
+# - use system gyp
+
+%define		pkg	node-gyp
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
 Version:	0.9.3
-Release:	1
+Release:	1.2
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/TooTallNate/node-gyp
@@ -53,11 +57,12 @@ mv package/* .
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{nodejs_libdir}/node-gyp
-cp -pr bin lib legacy package.json $RPM_BUILD_ROOT%{nodejs_libdir}/node-gyp
+install -d $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
+cp -pr bin lib legacy package.json $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
+cp -pr *.gyp* gyp $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
 
 install -d $RPM_BUILD_ROOT%{_bindir}
-ln -s %{nodejs_libdir}/node-gyp/bin/node-gyp.js $RPM_BUILD_ROOT%{_bindir}/node-gyp
+ln -s %{nodejs_libdir}/%{pkg}/bin/node-gyp.js $RPM_BUILD_ROOT%{_bindir}/node-gyp
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -66,11 +71,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md LICENSE
 %attr(755,root,root) %{_bindir}/node-gyp
-%dir %{nodejs_libdir}/node-gyp
-%{nodejs_libdir}/node-gyp/package.json
-%{nodejs_libdir}/node-gyp/lib
-%dir %{nodejs_libdir}/node-gyp/bin
-%attr(755,root,root) %{nodejs_libdir}/node-gyp/bin/node-gyp.js
+%dir %{nodejs_libdir}/%{pkg}
+%{nodejs_libdir}/%{pkg}/package.json
+%{nodejs_libdir}/%{pkg}/addon.gypi
+%{nodejs_libdir}/%{pkg}/lib
+%dir %{nodejs_libdir}/%{pkg}/bin
+%attr(755,root,root) %{nodejs_libdir}/%{pkg}/bin/node-gyp.js
 
 # waf based tools
-%{nodejs_libdir}/node-gyp/legacy
+%{nodejs_libdir}/%{pkg}/legacy
+
+%defattr(-,root,root,-)
+%{nodejs_libdir}/%{pkg}/gyp
