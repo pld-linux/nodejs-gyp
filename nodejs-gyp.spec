@@ -12,9 +12,9 @@ URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
 # Source0-md5:	3d8a5cf4b5b92457af68035bb0e0e96f
 BuildRequires:	sed >= 4.0
-Requires:	gcc
 Requires:	make
 Requires:	nodejs
+Requires:	nodejs-devel
 Requires:	nodejs-fstream
 Requires:	nodejs-glob < 4.0.0
 Requires:	nodejs-glob >= 3.0.0
