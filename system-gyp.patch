@@ -1,0 +1,21 @@
+--- nodejs-gyp-0.9.5/lib/configure.js	2013-03-09 03:34:37.000000000 +0200
++++ ./lib/configure.js	2013-04-07 22:52:41.689964923 +0300
+@@ -373,7 +373,7 @@
+     })
+ 
+     // this logic ported from the old `gyp_addon` python file
+-    var gyp_script = path.resolve(__dirname, '..', 'gyp', 'gyp')
++    var gyp_script = gyp.opts.gyp || path.resolve(__dirname, '..', 'gyp', 'gyp')
+     var addon_gypi = path.resolve(__dirname, '..', 'addon.gypi')
+     var common_gypi = path.resolve(nodeDir, 'common.gypi')
+     var output_dir = 'build'
+--- nodejs-gyp-0.9.5/lib/node-gyp.js	2013-03-09 01:42:19.000000000 +0200
++++ ./lib/node-gyp.js	2013-04-07 22:54:31.155021983 +0300
+@@ -84,6 +84,7 @@
+   , nodedir: String   // 'configure'
+   , loglevel: String  // everywhere
+   , python: String    // 'configure'
++  , gyp: String       // 'configure'
+   , 'dist-url': String // 'install'
+   , jobs: String      // 'build'
+   , thin: String      // 'configure'

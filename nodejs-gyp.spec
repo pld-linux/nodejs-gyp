@@ -1,18 +1,17 @@
-# TODO
-# - use system gyp
-
 %define		pkg	node-gyp
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
 Version:	0.9.5
-Release:	0.2
+Release:	0.3
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
 # Source0-md5:	3d8a5cf4b5b92457af68035bb0e0e96f
 Patch0:		jobs-alias.patch
+Patch1:		system-gyp.patch
 BuildRequires:	sed >= 4.0
+Requires:	gyp
 Requires:	make
 Requires:	nodejs
 Requires:	nodejs-devel
@@ -51,6 +50,7 @@ replacement to the node-waf program which is removed for node v0.8.
 %setup -qc
 mv package/* .
 %patch0 -p1
+%patch1 -p1
 
 # fix shebangs
 %{__sed} -i -e '1s,^#!.*node,#!/usr/bin/node,' \
@@ -61,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
 cp -pr bin lib legacy package.json $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
-cp -pr *.gyp* gyp $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
+cp -pr *.gyp* $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
 
 install -d $RPM_BUILD_ROOT%{_bindir}
 ln -s %{nodejs_libdir}/%{pkg}/bin/node-gyp.js $RPM_BUILD_ROOT%{_bindir}/node-gyp
@@ -82,6 +82,3 @@ rm -rf $RPM_BUILD_ROOT
 
 # waf based tools
 %{nodejs_libdir}/%{pkg}/legacy
-
-%defattr(-,root,root,-)
-%{nodejs_libdir}/%{pkg}/gyp
