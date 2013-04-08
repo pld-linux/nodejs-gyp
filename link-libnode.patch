@@ -1,0 +1,12 @@
+--- nodejs-gyp-0.9.5/addon.gypi~	2013-03-09 01:42:19.000000000 +0200
++++ nodejs-gyp-0.9.5/addon.gypi	2013-04-08 20:07:37.237603565 +0300
+@@ -39,6 +39,9 @@
+       }],
+       [ 'OS=="freebsd" or OS=="openbsd" or OS=="solaris" or (OS=="linux" and target_arch!="ia32")', {
+         'cflags': [ '-fPIC' ],
++      }],
++      [ '1==1', {
++        'libraries': [ '-lnode' ],
+       }]
+     ]
+   }
