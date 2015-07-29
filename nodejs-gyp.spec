@@ -2,14 +2,14 @@
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
 Version:	0.12.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Libraries
-URL:		https://github.com/TooTallNate/node-gyp
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
 # Source0-md5:	a296a511c2a3f4481862ff62966e0972
 Patch0:		system-gyp.patch
 Patch1:		link-libnode.patch
+URL:		https://github.com/TooTallNate/node-gyp
 BuildRequires:	sed >= 4.0
 Requires:	gyp
 Requires:	make
@@ -56,13 +56,18 @@ mv package/* .
 %{__sed} -i -e '1s,^#!.*node,#!/usr/bin/node,' \
 	bin/node-gyp.js
 
+# cleanup backups after patching
+find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
+
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT{%{_bindir},%{nodejs_libdir}/%{pkg}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{nodejs_libdir}/%{pkg}/gyp}
 cp -pr bin lib package.json $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
 cp -pr *.gyp* $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}
 ln -s %{nodejs_libdir}/%{pkg}/bin/node-gyp.js $RPM_BUILD_ROOT%{_bindir}/node-gyp
+
+install -d $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}/gyp
+ln -s %{_bindir}/gyp $RPM_BUILD_ROOT%{nodejs_libdir}/%{pkg}/gyp
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,6 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{nodejs_libdir}/%{pkg}
 %{nodejs_libdir}/%{pkg}/package.json
 %{nodejs_libdir}/%{pkg}/addon.gypi
+%{nodejs_libdir}/%{pkg}/gyp
 %{nodejs_libdir}/%{pkg}/lib
 %dir %{nodejs_libdir}/%{pkg}/bin
 %attr(755,root,root) %{nodejs_libdir}/%{pkg}/bin/node-gyp.js
