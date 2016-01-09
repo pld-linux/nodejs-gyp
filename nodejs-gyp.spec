@@ -1,12 +1,12 @@
 %define		pkg	node-gyp
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
-Version:	0.13.1
+Version:	1.0.1
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
-# Source0-md5:	11b78882c25b8f9e3a3ebbbb4cbe33c0
+# Source0-md5:	ecb5099d36c8ef2018a898ece3e41e99
 Patch0:		system-gyp.patch
 Patch1:		link-libnode.patch
 URL:		https://github.com/TooTallNate/node-gyp
@@ -15,14 +15,17 @@ Requires:	gyp
 Requires:	make
 Requires:	nodejs >= 0.8.0
 Requires:	nodejs-devel
-Requires:	nodejs-fstream < 1
-Requires:	nodejs-glob < 4
+Requires:	nodejs-fstream < 2
+Requires:	nodejs-fstream >= 1.0.0
+Requires:	nodejs-glob < 5
 Requires:	nodejs-glob >= 3
-Requires:	nodejs-graceful-fs < 3
-Requires:	nodejs-graceful-fs >= 2
-Requires:	nodejs-minimatch < 1
-Requires:	nodejs-mkdirp < 1
-Requires:	nodejs-nopt < 3
+Requires:	nodejs-graceful-fs < 4
+Requires:	nodejs-graceful-fs >= 3
+Requires:	nodejs-minimatch < 2
+Requires:	nodejs-minimatch >= 1
+Requires:	nodejs-mkdirp >= 0.5.0
+Requires:	nodejs-mkdirp >= 1
+Requires:	nodejs-nopt < 4
 Requires:	nodejs-nopt >= 2
 Requires:	nodejs-npmlog < 1
 Requires:	nodejs-osenv < 1
@@ -30,9 +33,10 @@ Requires:	nodejs-request < 3
 Requires:	nodejs-request >= 2
 Requires:	nodejs-rimraf < 3
 Requires:	nodejs-rimraf >= 2
-Requires:	nodejs-semver < 2.3.0
-Requires:	nodejs-semver >= 2.2.1
-Requires:	nodejs-tar < 1
+Requires:	nodejs-semver < 4
+Requires:	nodejs-semver >= 2
+Requires:	nodejs-tar < 2
+Requires:	nodejs-tar >= 1.0.0
 Requires:	nodejs-which < 2
 Requires:	nodejs-which >= 1
 Requires:	python >= 2.7
