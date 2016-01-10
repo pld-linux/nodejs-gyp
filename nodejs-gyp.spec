@@ -23,8 +23,8 @@ Requires:	nodejs-graceful-fs < 4
 Requires:	nodejs-graceful-fs >= 3
 Requires:	nodejs-minimatch < 2
 Requires:	nodejs-minimatch >= 1
+Requires:	nodejs-mkdirp < 1
 Requires:	nodejs-mkdirp >= 0.5.0
-Requires:	nodejs-mkdirp >= 1
 Requires:	nodejs-nopt < 4
 Requires:	nodejs-nopt >= 2
 Requires:	nodejs-npmlog < 1
