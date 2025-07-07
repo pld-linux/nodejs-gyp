@@ -57,8 +57,8 @@ replacement to the node-waf program which is removed for node v0.8.
 %prep
 %setup -qc
 mv package/* .
-%{?with_system_gyp:%patch0 -p1}
-%patch1 -p1
+%{?with_system_gyp:%patch -P0 -p1}
+%patch -P1 -p1
 
 # fix shebangs
 %{__sed} -i -e '1s,^#!.*node,#!/usr/bin/node,' \
