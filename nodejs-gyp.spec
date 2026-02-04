@@ -6,7 +6,7 @@
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
 Version:	11.2.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Libraries
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
@@ -27,6 +27,7 @@ Requires:	make
 Requires:	nodejs >= 20.5.0
 Requires:	nodejs-devel
 Requires:	python3
+Requires:	python3-modules
 Obsoletes:	node-node-gyp
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
