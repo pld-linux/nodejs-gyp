@@ -5,17 +5,17 @@
 %define		pkg	node-gyp
 Summary:	Node.js native addon build tool
 Name:		nodejs-gyp
-Version:	11.2.0
-Release:	2
+Version:	12.3.0
+Release:	1
 License:	MIT
 Group:		Development/Libraries
 Source0:	http://registry.npmjs.org/node-gyp/-/node-gyp-%{version}.tgz
-# Source0-md5:	b458b941ff4e015a1464437532aaffb0
+# Source0-md5:	3c1187113f52165a6dc43093c150edba
 # tar xf node-gyp-%{version}.tgz
 # npm -C package install --omit dev --no-audit --no-fund
 # tar acf nodejs-gyp-node_modules-%{version}.tar.xz package/node_modules
 Source1:	%{name}-node_modules-%{version}.tar.xz
-# Source1-md5:	02f806bb4e6b7fc6371c9ca2868ecb9e
+# Source1-md5:	db037c29a2a4fd9bee5e79127b5fe429
 Patch0:		system-gyp.patch
 Patch1:		link-libnode.patch
 URL:		https://github.com/TooTallNate/node-gyp
